@@ -145,12 +145,13 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    const central_date = "Thu 18th Dec";
-    const chantrys_date = "Tue 16th Dec";
-    const folly_hill_date = "Tue 9th Dec";
-    const heath_end_date = "Wed 17th Dec";
-    const rowledge_date = "Thu 11th Dec";
-    const south_farnham_date = "Wed 10th Dec";
+    const central_date = new Date("2025-12-18");
+    const chantrys_date = new Date("2025-12-16");
+    const folly_hill_date = new Date("2025-12-09");
+    const heath_end_date = new Date("2025-12-17");
+    const rowledge_date = new Date("2025-12-111");
+    const south_farnham_date = new Date("2025-12-11");
+    const date_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     const firebaseURL = "https://frt-santas-sleigh-default-rtdb.europe-west1.firebasedatabase.app/location/current.json";
 
@@ -1961,7 +1962,7 @@
 
     const central_poly = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Central Farnham: " + central_date);
+                            .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", options));
     const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9})
                             .addTo(map)
                             .bindPopup("Chantrys: " + chantrys_date);
