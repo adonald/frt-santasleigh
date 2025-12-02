@@ -196,7 +196,11 @@
     followBtn.addEventListener('click', () => {
       followSanta = !followSanta;
       followBtn.textContent = `Follow Santa: ${followSanta ? 'ON' : 'OFF'}`;
-      followBtn.classList.replace("is-success", "is-danger");
+      if (followSanta) {
+        followBtn.classList.replace("is-success", "is-danger")
+       } else {
+        followBtn.classList.replace("is-danger", "is-success")
+       };
       if (followSanta) map.panTo(marker.getLatLng());
     });
 
