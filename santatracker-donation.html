@@ -145,6 +145,13 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
+    const central_date = "Thu 18th Dec";
+    const chantrys_date = "";
+    const folly_hill_date = "";
+    const heath_end_date = "";
+    const rowledge_date = "";
+    const south_farnham_date = "";
+
     const firebaseURL = "https://frt-santas-sleigh-default-rtdb.europe-west1.firebasedatabase.app/location/current.json";
 
     const REFRESH_MS = 10000;
@@ -1952,7 +1959,9 @@
       [51.2005153,-0.7943807],
     ]
 
-    const central_poly = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
+    const central_poly = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("Central Farnham route: " + central_date);
     const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
     const folly_hill_poly = L.polyline(folly_hill_latlngs, {color: 'green',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
     const heath_end_poly = L.polyline(heath_end_latlngs, {color: 'black',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
