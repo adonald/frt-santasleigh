@@ -24,11 +24,12 @@
     }
 
     body { height: 100vh; overflow: hidden; }
-    #map { height: 100vh; width: 100vw; }
+    #map { height: 90vh; width: 100vw; }
+    header { height: 10vh; }
 
     .status-popup {
       position: absolute;
-      top: 24px; left: 35%; transform: translateX(-50%);
+      top: 24px; left: 50%; transform: translateX(-50%);
       background: rgba(24,24,24,0.93);
       color: #fff;
       padding: 16px 18px 12px 18px;
@@ -46,7 +47,7 @@
 
     .info-popup {
       position: fixed;
-      left: 35%; transform: translateX(-50%);
+      left: 50%; transform: translateX(-50%);
       bottom: 16px;
       background: rgba(20,20,20,0.92);
       color: #fff;
@@ -82,7 +83,7 @@
     .donate-box {
       position: fixed;
       bottom: 70px; /* desktop + landscape */
-      left: 25%;
+      left: 50%;
       transform: translateX(-50%);
       z-index: 2000;
       text-align: center;
@@ -109,7 +110,7 @@
       .info-popup { font-size: 0.8em; bottom: 10px; gap: 8px; }
 
       .donate-box {
-        bottom: calc(15vh) !important; /* 📌 dynamically perfect on all phones */
+        bottom: calc(12vh) !important; /* 📌 dynamically perfect on all phones */
       }
     }
 
@@ -119,6 +120,8 @@
 </head>
 
 <body>
+
+  <header>This is the header</header>
 
   <div class="status-popup" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</div>
 
