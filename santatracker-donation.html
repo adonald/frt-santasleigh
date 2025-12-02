@@ -162,7 +162,7 @@
     const sleighIcon = L.icon({
       iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
       iconSize: [32, 32],
-      iconAnchor: [16, 16],
+      iconAnchor: [16, 32],
       popupAnchor: [0, -16]
     });
 
@@ -176,11 +176,6 @@
     const lastUpdatedEl = document.getElementById('lastUpdated');
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
-
-    const fmt = new Intl.DateTimeFormat('en-GB', {
-      hour: '2-digit', minute: '2-digit', second: '2-digit',
-      day: '2-digit', month: 'short', timeZone: 'Europe/London'
-    });
     
     function setLive() {
       marker.getPopup().setContent("🎁 Santa's Current Location");
