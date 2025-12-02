@@ -211,7 +211,7 @@
       "South Farnham": south_farnham
     }
 
-    const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true}).addTo(map);
+    const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true, position: "bottomright"}).addTo(map);
 
     const zoom_control = L.control.zoom({position: "bottomleft"}).addTo(map);
 
