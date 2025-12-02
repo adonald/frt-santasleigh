@@ -28,7 +28,7 @@
 
     .status-popup {
       position: absolute;
-      top: 24px; left: 25%; transform: translateX(-50%);
+      top: 24px; left: 35%; transform: translateX(-50%);
       background: rgba(24,24,24,0.93);
       color: #fff;
       padding: 16px 18px 12px 18px;
@@ -39,14 +39,14 @@
       z-index: 2000;
       text-align: center;
       min-width: 300px;
-      max-width: 95vw;
+      max-width: 60vw;
       letter-spacing: 0.01em;
       line-height: 1.25;
     }
 
     .info-popup {
       position: fixed;
-      left: 50%; transform: translateX(-50%);
+      left: 35%; transform: translateX(-50%);
       bottom: 16px;
       background: rgba(20,20,20,0.92);
       color: #fff;
@@ -82,7 +82,7 @@
     .donate-box {
       position: fixed;
       bottom: 70px; /* desktop + landscape */
-      left: 50%;
+      left: 25%;
       transform: translateX(-50%);
       z-index: 2000;
       text-align: center;
@@ -109,7 +109,7 @@
       .info-popup { font-size: 0.8em; bottom: 10px; gap: 8px; }
 
       .donate-box {
-        bottom: calc(12vh) !important; /* 📌 dynamically perfect on all phones */
+        bottom: calc(15vh) !important; /* 📌 dynamically perfect on all phones */
       }
     }
 
@@ -1954,8 +1954,6 @@
                       .addLayer(heath_end)
                       .addLayer(rowledge)
                       .addLayer(south_farnham);
-    
-    const zoom_control = L.control.zoom({position: "bottomright"});
 
     const map = L.map("map", {
       center: [fallbackCoords.lat, fallbackCoords.lng],
@@ -1977,6 +1975,8 @@
     }
 
     const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true}).addTo(map);
+
+    const zoom_control = L.control.zoom({position: "bottomright"}).addTo(map);
 
     const sleighIcon = L.icon({
       iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
