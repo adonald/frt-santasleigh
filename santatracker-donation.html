@@ -145,12 +145,12 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    const central_date = new Date("2025-12-18");
-    const chantrys_date = new Date("2025-12-16");
-    const folly_hill_date = new Date("2025-12-09");
-    const heath_end_date = new Date("2025-12-17");
-    const rowledge_date = new Date("2025-12-111");
-    const south_farnham_date = new Date("2025-12-11");
+    const central_date = new Date(2025, 12, 18);
+    const chantrys_date = new Date(2025, 12, 16);
+    const folly_hill_date = new Date(2025, 12, 9);
+    const heath_end_date = new Date(2025, 12, 17);
+    const rowledge_date = new Date(2025, 12, 11);
+    const south_farnham_date = new Date(2025, 12, 10);
     const date_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     const firebaseURL = "https://frt-santas-sleigh-default-rtdb.europe-west1.firebasedatabase.app/location/current.json";
@@ -1965,19 +1965,19 @@
                             .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", date_options));
     const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Chantrys: " + chantrys_date);
+                            .bindPopup("Chantrys: " + chantrys_date.toLocaleDateString("en-GB", date_options));
     const folly_hill_poly = L.polyline(folly_hill_latlngs, {color: 'green',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Folly Hill: " + folly_hill_date);
+                            .bindPopup("Folly Hill: " + folly_hill_date.toLocaleDateString("en-GB", date_options));
     const heath_end_poly = L.polyline(heath_end_latlngs, {color: 'black',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Heath End: " + heath_end_date);
+                            .bindPopup("Heath End: " + heath_end_date.toLocaleDateString("en-GB", date_options));
     const rowledge_poly = L.polyline(rowledge_latlngs, {color: 'yellow',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Rowledge: " + rowledge_date);
+                            .bindPopup("Rowledge: " + rowledge_date.toLocaleDateString("en-GB", date_options));
     const south_farnham_poly = L.polyline(south_farnham_latlngs, {color: 'pink',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("South Farnham: " + south_farnham_date);
+                            .bindPopup("South Farnham: " + south_farnham_date.toLocaleDateString("en-GB", date_options));
     
     function setLive() {
       marker.getPopup().setContent("🎁 Santa's Current Location");
