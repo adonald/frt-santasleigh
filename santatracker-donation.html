@@ -177,8 +177,8 @@
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
     
-    function setLive() {
-      marker.getPopup().setContent("🎁 Santa's Current Location");
+    function setLive(lus) {
+      marker.getPopup().setContent("🎁 Santa's Current Location. " + lus);
       statusBox.textContent = '🎅 Santa is out on his sleigh delivering joy!';
     }
 
@@ -256,6 +256,7 @@
 
         const gpsTime = new Date(data.ts).getTime();
         const ageMs = Date.now() - gpsTime;
+        var lastUpdatedString = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
 
         if (ageMs < STALE_MS) {
           lastUpdatedEl.style.display = 'inline';
@@ -271,7 +272,7 @@
           animateMarker(lastPoint, newLatLng);
           lastPoint = newLatLng;
 
-          setLive();
+          setLive(lastUpdatedString);
           backoff = REFRESH_MS;
           return;
         }
