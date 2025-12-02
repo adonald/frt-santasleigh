@@ -70,15 +70,10 @@
   <section class="hero is-small is-black">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</p>
+        <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas! <span class="muted" id="lastUpdated">Last updated: —</span></p>
       </div>
     </div>
   </section>
-
-  <div class="info-popup">
-    <span class="muted" id="lastUpdated">Last update: —</span>
-    <span class="muted" id="age">Age: —</span>
-  </div>
   
   <canvas id="snow"></canvas>
   <div id="map"></div>
@@ -178,7 +173,6 @@
 
     const statusBox = document.getElementById("status-box");
     const lastUpdatedEl = document.getElementById('lastUpdated');
-    const ageEl = document.getElementById('age');
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
 
@@ -269,13 +263,9 @@
 
         if (ageMs < STALE_MS) {
           lastUpdatedEl.style.display = 'inline';
-          lastUpdatedEl.textContent = `Last update: ${fmt.format(new Date(gpsTime))}`;
-
-          ageEl.style.display = 'inline';
-          ageEl.textContent = `Age: ${Math.floor(ageMs / 1000)}s`;
+          lastUpdatedEl.textContent = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
         } else {
           lastUpdatedEl.style.display = 'none';
-          ageEl.style.display = 'none';
         }
 
         if (ageMs < STALE_MS) {
@@ -309,7 +299,6 @@
       animateMarker(marker.getLatLng(), next, 600);
 
       lastUpdatedEl.style.display = 'none';
-      ageEl.style.display = 'none';
 
       setLapland(msg);
     }
