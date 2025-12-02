@@ -1947,7 +1947,13 @@
     const south_farnham = L.polyline(south_farnham_latlngs, {color: 'deeppink',weight: 3,opacity: 0.9})
                             .bindPopup("South Farnham: " + south_farnham_date.toLocaleDateString("en-GB", date_options));
     
-    const routes = L.layerGroup([central, chantrys, folly_hill, heath_end, rowledge, south_farnham]);
+    const routes = L.layerGroup()
+                      .addLayer(central)
+                      .addLayer(chantrys)
+                      .addLayer(folly_hill)
+                      .addLayer(heath_end)
+                      .addLayer(rowledge)
+                      .addLayer(south_farnham);
     
     const map = L.map("map", {
       center: [fallbackCoords.lat, fallbackCoords.lng],
