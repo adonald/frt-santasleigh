@@ -1958,6 +1958,7 @@
     const map = L.map("map", {
       center: [fallbackCoords.lat, fallbackCoords.lng],
       zoom: 13,
+      zoomControl: false,
       layers: [osm, routes]
     });
 
@@ -1976,7 +1977,7 @@
 
     const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true}).addTo(map);
 
-    const zoom_control = L.control.zoom({position: "bottomright"}).addTo(map);
+    const zoom_control = L.control.zoom({position: "bottomleft"}).addTo(map);
 
     const sleighIcon = L.icon({
       iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
