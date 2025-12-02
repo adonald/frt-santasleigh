@@ -151,8 +151,9 @@
     const STALE_MS = 5 * 60000;
     const FETCH_TIMEOUT_MS = 7000;
 
-    const fallbackCoords = { lat: 66.5436, lng: 25.8473 };
-
+    //const fallbackCoords = { lat: 66.5436, lng: 25.8473 }; //Lapland
+    const fallbackCoords = { lat: 51.2149, lng: -0.7989 }; //Farnham
+    
     const map = L.map("map").setView([fallbackCoords.lat, fallbackCoords.lng], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
