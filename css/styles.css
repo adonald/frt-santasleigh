@@ -1,0 +1,152 @@
+   html,
+   body {
+       height: 100%;
+       margin: 0;
+       padding: 0;
+       font-family:
+           -apple-system,
+           BlinkMacSystemFont,
+           "Segoe UI",
+           Roboto,
+           Helvetica,
+           Arial,
+           "Helvetica Neue",
+           sans-serif;
+       background: #001;
+       color: white;
+   }
+
+   body {
+       height: 100vh;
+       overflow: hidden;
+   }
+
+   #map {
+       height: 100vh;
+       width: 100vw;
+       /* margin-top: 56px; */
+   }
+
+   header {
+       height: 10vh;
+   }
+
+   .status-popup {
+       position: absolute;
+       top: 24px;
+       left: 50%;
+       transform: translateX(-50%);
+       background: rgba(24, 24, 24, 0.93);
+       color: #fff;
+       padding: 16px 18px 12px 18px;
+       font-size: 1.25em;
+       font-weight: 700;
+       border-radius: 18px;
+       box-shadow: 0 4px 32px #0006;
+       z-index: 2000;
+       text-align: center;
+       min-width: 300px;
+       max-width: 60vw;
+       letter-spacing: 0.01em;
+       line-height: 1.25;
+   }
+
+   .info-popup {
+       position: fixed;
+       left: 50%;
+       transform: translateX(-50%);
+       bottom: 16px;
+       background: rgba(20, 20, 20, 0.92);
+       color: #fff;
+       padding: 10px 12px;
+       border-radius: 12px;
+       box-shadow: 0 4px 28px #0006;
+       z-index: 2000;
+       display: inline-flex;
+       gap: 12px;
+       align-items: center;
+       flex-wrap: wrap;
+       font-size: 0.85em;
+       font-weight: 700;
+   }
+
+   .info-popup .controls {
+       display: inline-flex;
+       gap: 12px;
+       align-items: center;
+       flex-wrap: nowrap;
+       white-space: nowrap;
+   }
+
+   .muted {
+       opacity: .9;
+       font-weight: 600;
+       display: none;
+   }
+
+   .btn {
+       background: #0b1220;
+       color: #fff;
+       border: 1px solid #ffffff26;
+       border-radius: 10px;
+       padding: 6px 10px;
+       font-size: .85em;
+       font-weight: 800;
+       cursor: pointer;
+   }
+
+   .btn:disabled {
+       opacity: .7;
+       cursor: not-allowed;
+   }
+
+   /* ⭐ DONATE BUTTON ⭐ */
+   .donate-box {
+       position: fixed;
+       bottom: 70px;
+       /* desktop + landscape */
+       left: 50%;
+       transform: translateX(-50%);
+       z-index: 2000;
+       text-align: center;
+   }
+
+   .donate-btn {
+       background: #d31c1c;
+       color: #fff;
+       font-weight: 800;
+       padding: 12px 20px;
+       border-radius: 14px;
+       text-decoration: none;
+       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+       display: inline-block;
+       font-size: 1.05em;
+   }
+
+   #snow {
+       position: fixed;
+       inset: 0;
+       z-index: 1000;
+       pointer-events: none;
+   }
+
+   /* 📱 Mobile portrait — dynamic spacing based on viewport height */
+   @media (max-width: 600px) and (orientation: portrait) {
+
+       .status-popup {
+           font-size: 1em;
+           padding: 12px 10px;
+           min-width: 160px;
+       }
+
+       .info-popup {
+           font-size: 0.8em;
+           bottom: 10px;
+           gap: 8px;
+       }
+
+       .donate-box {
+           bottom: calc(12vh) !important;
+           /* 📌 dynamically perfect on all phones */
+       }
+   }
