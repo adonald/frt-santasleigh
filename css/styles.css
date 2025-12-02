@@ -27,8 +27,8 @@
        z-index: 10;
    }
 
-   header {
-       height: 10vh;
+   .hero {
+       padding-top: 56px; /* account for fixed top nav */
    }
 
    .status-popup {
