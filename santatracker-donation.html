@@ -149,12 +149,12 @@
     };
 
     const overlays = {
-      "Central Farnham": central,
-      "Chantrys": chantrys,
-      "Folly Hill": folly_hill,
-      "Heath End": heath_end,
-      "Rowledge": rowledge,
-      "South Farnham": south_farnham
+      "<span style='color: red'>Central Farnham</span>": central,
+      "<span style='color: blue'>Chantrys</span>": chantrys,
+      "<span style='color: green'>Folly Hill</span>": folly_hill,
+      "<span style='color: black'>Heath End</span>": heath_end,
+      "<span style='color: darkorchid'>Rowledge</span>": rowledge,
+      "<span style='color: deeppink'>South Farnham</span>": south_farnham
     }
 
     const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true, position: "bottomright"}).addTo(map);
