@@ -21,50 +21,51 @@
 
 <body>
 
-    <nav class="navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <img src="img/frt-logo-horiz.png" alt="Farnham Round Table logo" />
+  <nav class="navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="img/frt-logo-horiz.png" alt="Farnham Round Table logo" />
+      </a>
+      <a id="navbar-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item menu-item" href="#">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fa-solid fa-clock"></i>
+            </span>
+            <span>What's On</span>
+          </span>
+        </a>
+        <a class="navbar-item menu-item" href="#">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fa-solid fa-circle-question"></i>
+            </span>
+            <span>FAQs</span>
+          </span>
+        </a>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-black" href="https://www.paypal.com/donate/?hosted_button_id=3Q68MXSF6R8E6">
+              <strong>🎁 Donate!</strong>
             </a>
-            <a id="navbar-burger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+          </div>
         </div>
-
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item menu-item" href="#">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa-solid fa-clock"></i>
-                        </span>
-                        <span>What's On</span>
-                    </span>
-                </a>
-                <a class="navbar-item menu-item" href="#">
-                    <span class="icon-text">
-                        <span class="icon">
-                            <i class="fa-solid fa-circle-question"></i>
-                        </span>
-                        <span>FAQs</span>
-                    </span>
-                </a>
-            </div>
-
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-black" href="https://www.paypal.com/donate/?hosted_button_id=3Q68MXSF6R8E6">
-                            <strong>🎁 Donate!</strong>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
   <div class="status-popup" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</div>
 
@@ -87,6 +88,14 @@
 
   <canvas id="snow"></canvas>
   <div id="map"></div>
+
+  <nav class="navbar is-fixed-bottom is-black" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="img/frt-logo-horiz.png" alt="Farnham Round Table logo" />
+      </a>
+    </div>
+  </nav>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
