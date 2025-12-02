@@ -81,8 +81,8 @@
     <div class="navbar-start">
       <div class="navbar-item">
         <div class="buttons">
-          <button class="btn" id="followBtn" title="Keep the map centred on Santa">Follow Santa: ON</button>
-          <button class="btn" id="recenterBtn" title="Re-centre on Santa">Re-centre</button>
+          <button class="button is-success" id="followBtn" title="Keep the map centred on Santa">Follow Santa: ON</button>
+          <button class="button" id="recenterBtn" title="Re-centre on Santa">Re-centre</button>
         </div>
       </div>
     </div>
@@ -196,6 +196,7 @@
     followBtn.addEventListener('click', () => {
       followSanta = !followSanta;
       followBtn.textContent = `Follow Santa: ${followSanta ? 'ON' : 'OFF'}`;
+      followBtn.classList.replace("is-success", "is-danger");
       if (followSanta) map.panTo(marker.getLatLng());
     });
 
@@ -203,6 +204,7 @@
       if (followSanta) {
         followSanta = false;
         followBtn.textContent = 'Follow Santa: OFF';
+        followBtn.classList.replace("is-success", "is-danger");
       }
     });
 
@@ -210,6 +212,7 @@
       map.panTo(marker.getLatLng());
       followSanta = true;
       followBtn.textContent = 'Follow Santa: ON';
+      followBtn.classList.replace("is-danger", "is-success");
     });
 
     function animateMarker(from, to, duration = 1000) {
