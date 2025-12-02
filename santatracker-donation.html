@@ -173,12 +173,11 @@
     const trail = L.polyline([], { weight: 2, opacity: 0.9 }).addTo(map);
 
     const statusBox = document.getElementById("status-box");
-    // const lastUpdatedEl = document.getElementById('lastUpdated');
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
     
     function setLive(lus) {
-      marker.getPopup().setContent("🎁 Santa's Current Location. " + lus);
+      marker.getPopup().setContent("🎁 Santa's Current Location" + lus);
       statusBox.textContent = '🎅 Santa is out on his sleigh delivering joy!';
     }
 
@@ -256,14 +255,7 @@
 
         const gpsTime = new Date(data.ts).getTime();
         const ageMs = Date.now() - gpsTime;
-        var lastUpdatedString = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
-
-        // if (ageMs < STALE_MS) {
-        //   lastUpdatedEl.style.display = 'inline';
-        //   lastUpdatedEl.textContent = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
-        // } else {
-        //   lastUpdatedEl.style.display = 'none';
-        // }
+        var lastUpdatedString = `<br />Last updated: ${Math.floor(ageMs / 1000)}s ago`;
 
         if (ageMs < STALE_MS) {
           const newLatLng = L.latLng(data.lat, data.lng);
@@ -294,8 +286,6 @@
     function goFallback(msg) {
       const next = L.latLng(fallbackCoords.lat, fallbackCoords.lng);
       animateMarker(marker.getLatLng(), next, 600);
-
-      // lastUpdatedEl.style.display = 'none';
 
       setLapland(msg);
     }
