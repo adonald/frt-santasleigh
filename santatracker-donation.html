@@ -162,11 +162,15 @@
     //const fallbackCoords = { lat: 66.5436, lng: 25.8473 }; //Lapland
     const fallbackCoords = { lat: 51.2149, lng: -0.7989 }; //Farnham
     
-    const map = L.map("map").setView([fallbackCoords.lat, fallbackCoords.lng], 13);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+    const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; OpenStreetMap contributors'
+        });
+    
+    const map = L.map("map", {
+      center: [fallbackCoords.lat, fallbackCoords.lng],
+      zoom: 13,
+      layers: [osm]
+    });
 
     const sleighIcon = L.icon({
       iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
