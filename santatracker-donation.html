@@ -1955,6 +1955,8 @@
                       .addLayer(rowledge)
                       .addLayer(south_farnham);
     
+    const zoom_control = L.control.zoom({position: "bottomright"});
+
     const map = L.map("map", {
       center: [fallbackCoords.lat, fallbackCoords.lng],
       zoom: 13,
