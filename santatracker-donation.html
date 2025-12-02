@@ -184,7 +184,7 @@
       day: '2-digit', month: 'short', timeZone: 'Europe/London'
     });
 
-    var central_latlngs = [
+    const central_latlngs = [
       [-0.78396,51.2233,0],
       [-0.784,51.22308,0],
       [-0.78381,51.22307,0],
@@ -450,7 +450,7 @@
       [-0.80023,51.21657,0],
     ];
 
-    var polyline = L.polyline(central_latlngs, {color: 'red', interactive: 'false'}).addTo(map);
+    const central_poly = L.polyline(central_latlngs, {color: 'red', interactive: 'false'}).addTo(map);
 
     function setLive() {
       marker.getPopup().setContent("🎁 Santa's Current Location");
