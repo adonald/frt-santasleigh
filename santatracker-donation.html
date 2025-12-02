@@ -173,7 +173,7 @@
     const trail = L.polyline([], { weight: 2, opacity: 0.9 }).addTo(map);
 
     const statusBox = document.getElementById("status-box");
-    const lastUpdatedEl = document.getElementById('lastUpdated');
+    // const lastUpdatedEl = document.getElementById('lastUpdated');
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
     
@@ -258,12 +258,12 @@
         const ageMs = Date.now() - gpsTime;
         var lastUpdatedString = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
 
-        if (ageMs < STALE_MS) {
-          lastUpdatedEl.style.display = 'inline';
-          lastUpdatedEl.textContent = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
-        } else {
-          lastUpdatedEl.style.display = 'none';
-        }
+        // if (ageMs < STALE_MS) {
+        //   lastUpdatedEl.style.display = 'inline';
+        //   lastUpdatedEl.textContent = `Last updated: ${Math.floor(ageMs / 1000)}s ago`;
+        // } else {
+        //   lastUpdatedEl.style.display = 'none';
+        // }
 
         if (ageMs < STALE_MS) {
           const newLatLng = L.latLng(data.lat, data.lng);
@@ -295,7 +295,7 @@
       const next = L.latLng(fallbackCoords.lat, fallbackCoords.lng);
       animateMarker(marker.getLatLng(), next, 600);
 
-      lastUpdatedEl.style.display = 'none';
+      // lastUpdatedEl.style.display = 'none';
 
       setLapland(msg);
     }
