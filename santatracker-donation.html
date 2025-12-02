@@ -179,7 +179,7 @@
       .addTo(map)
       .bindPopup("Santa is here!");
 
-    const trail = L.polyline([], { weight: 3, opacity: 0.9 }).addTo(map);
+    const trail = L.polyline([], { weight: 2, opacity: 0.9 }).addTo(map);
 
     const statusBox = document.getElementById("status-box");
     const lastUpdatedEl = document.getElementById('lastUpdated');
@@ -1975,7 +1975,7 @@
     const rowledge_poly = L.polyline(rowledge_latlngs, {color: 'yellow',weight: 3,opacity: 0.9})
                             .addTo(map)
                             .bindPopup("Rowledge: " + rowledge_date.toLocaleDateString("en-GB", date_options));
-    const south_farnham_poly = L.polyline(south_farnham_latlngs, {color: 'pink',weight: 3,opacity: 0.9})
+    const south_farnham_poly = L.polyline(south_farnham_latlngs, {color: 'deeppink',weight: 3,opacity: 0.9})
                             .addTo(map)
                             .bindPopup("South Farnham: " + south_farnham_date.toLocaleDateString("en-GB", date_options));
     
