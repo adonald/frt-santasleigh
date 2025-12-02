@@ -1961,11 +1961,15 @@
       layers: [osm, routes]
     });
 
+    const baseMaps = {
+      "OpenStreetMap": osm
+    };
+
     const overlayMaps = {
       "Routes": routes
     }
 
-    const layerControl = L.control.layers(overlayMaps).addTo(map);
+    const layerControl = L.control.layers(baseMaps, overlayMaps, {hideSingleBase: true}).addTo(map);
 
     const sleighIcon = L.icon({
       iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
