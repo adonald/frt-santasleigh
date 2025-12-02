@@ -197,9 +197,9 @@
       followSanta = !followSanta;
       followBtn.textContent = `Follow Santa: ${followSanta ? 'ON' : 'OFF'}`;
       if (followSanta) {
-        followBtn.classList.replace("is-success", "is-danger")
-       } else {
         followBtn.classList.replace("is-danger", "is-success")
+      } else {
+        followBtn.classList.replace("is-success", "is-danger")
        };
       if (followSanta) map.panTo(marker.getLatLng());
     });
