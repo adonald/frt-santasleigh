@@ -70,7 +70,8 @@
   <section class="hero is-small is-black">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas! <span class="muted" id="lastUpdated">Last updated: —</span></p>
+        <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</p>
+        <span class="muted" id="lastUpdated">Last updated: —</span>
       </div>
     </div>
   </section>
@@ -146,7 +147,7 @@
     };
 
     const overlays = {
-      "<span style='color: red'>Central Farnham</span>": central,
+      "<span style='color: red'>Central Farnham, Thu 18th Dec</span>": central,
       "<span style='color: blue'>Chantrys</span>": chantrys,
       "<span style='color: green'>Folly Hill</span>": folly_hill,
       "<span style='color: black'>Heath End</span>": heath_end,
@@ -154,7 +155,7 @@
       "<span style='color: deeppink'>South Farnham</span>": south_farnham
     }
 
-    const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true, position: "bottomright"}).addTo(map);
+    const layerControl = L.control.layers(baseMaps, overlays, {collapsed: true, hideSingleBase: true, position: "bottomright"}).addTo(map);
 
     const zoom_control = L.control.zoom({position: "bottomleft"}).addTo(map);
 
