@@ -1961,12 +1961,22 @@
 
     const central_poly = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Central Farnham route: " + central_date);
-    const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
-    const folly_hill_poly = L.polyline(folly_hill_latlngs, {color: 'green',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
-    const heath_end_poly = L.polyline(heath_end_latlngs, {color: 'black',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
-    const rowledge_poly = L.polyline(rowledge_latlngs, {color: 'yellow',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
-    const south_farnham_poly = L.polyline(south_farnham_latlngs, {color: 'pink',weight: 3,opacity: 0.9,interactive: false}).addTo(map);
+                            .bindPopup("Central Farnham: " + central_date);
+    const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("Chantrys: " + chantrys_date);
+    const folly_hill_poly = L.polyline(folly_hill_latlngs, {color: 'green',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("Folly Hill: " + folly_hill_date);
+    const heath_end_poly = L.polyline(heath_end_latlngs, {color: 'black',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("Heath End: " + heath_end_date);
+    const rowledge_poly = L.polyline(rowledge_latlngs, {color: 'yellow',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("Rowledge: " + rowledge_date);
+    const south_farnham_poly = L.polyline(south_farnham_latlngs, {color: 'pink',weight: 3,opacity: 0.9})
+                            .addTo(map)
+                            .bindPopup("South Farnham: " + south_farnham_date);
     
     function setLive() {
       marker.getPopup().setContent("🎁 Santa's Current Location");
