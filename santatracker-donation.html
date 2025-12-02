@@ -1962,7 +1962,7 @@
 
     const central_poly = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9})
                             .addTo(map)
-                            .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", options));
+                            .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", date_options));
     const chantrys_poly = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9})
                             .addTo(map)
                             .bindPopup("Chantrys: " + chantrys_date);
