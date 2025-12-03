@@ -190,6 +190,11 @@
     const routeSouthFarnhamBtn = document.getElementById("routeSouthFarnham");
 
     routeCentralFarnhamBtn.addEventListener('click', () => { map.fitBounds(central.getBounds()); })
+    routeChantrysBtn.addEventListener('click', () => { map.fitBounds(chantrys.getBounds()); })
+    routeFollyHillBtn.addEventListener('click', () => { map.fitBounds(folly_hill.getBounds()); })
+    routeHeathEndBtn.addEventListener('click', () => { map.fitBounds(heath_end.getBounds()); })
+    routeRowledgeBtn.addEventListener('click', () => { map.fitBounds(rowledge.getBounds()); })
+    routeSouthFarnhamBtn.addEventListener('click', () => { map.fitBounds(south_farnham.getBounds()); })
 
     const statusBox = document.getElementById("status-box");
     const followBtn = document.getElementById('followBtn');
