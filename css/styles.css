@@ -21,6 +21,10 @@
         overflow: hidden;
     }
 
+    #info.p {
+        padding-bottom: 1rem;
+    }
+
     #map {
         height: calc(100vh - 56px - 73px - 56px);
         /* entire height minus top navbar minus hero minus bottom navbar */
