@@ -46,12 +46,12 @@
               <span>Routes</span>
             </div>
             <div class="navbar-dropdown is-right">
-              <a class="navbar-item" id="routeCentralFarnham">Central Farnham</a>
-              <a class="navbar-item" id="routeChantrys">Chantrys</a>
-              <a class="navbar-item" id="routeFollyHill">Folly Hill</a>
-              <a class="navbar-item" id="routeHeathEnd">Heath End</a>
-              <a class="navbar-item" id="routeRowledge">Rowledge</a>
-              <a class="navbar-item" id="routeSouthFarnham">South Farnham</a>
+              <a class="navbar-item" id="routeFollyHill">Folly Hill, Tue 9th Dec</a>
+              <a class="navbar-item" id="routeSouthFarnham">South Farnham, Wed 10th Dec</a>
+              <a class="navbar-item" id="routeRowledge">Rowledge, Thu 11th Dec</a>
+              <a class="navbar-item" id="routeChantrys">Chantrys, Tue 16th Dec</a>
+              <a class="navbar-item" id="routeHeathEnd">Heath End, Wed 17th Dec</a>
+              <a class="navbar-item" id="routeCentralFarnham">Central Farnham, Thu 18th Dec</a>
             </div>
           </span>
         </div>
@@ -152,12 +152,12 @@
     };
 
     const overlays = {
-      "<span style='color: red'>Central Farnham, Thu 18th Dec</span>": central,
-      "<span style='color: blue'>Chantrys, Tue 16th Dec</span>": chantrys,
       "<span style='color: green'>Folly Hill, Tue 9th Dec</span>": folly_hill,
-      "<span style='color: black'>Heath End, Wed 17th Dec</span>": heath_end,
+      "<span style='color: deeppink'>South Farnham, Wed 10th Dec</span>": south_farnham,
       "<span style='color: darkorchid'>Rowledge, Thu 11th Dec</span>": rowledge,
-      "<span style='color: deeppink'>South Farnham, Wed 10th Dec</span>": south_farnham
+      "<span style='color: blue'>Chantrys, Tue 16th Dec</span>": chantrys,
+      "<span style='color: black'>Heath End, Wed 17th Dec</span>": heath_end,
+      "<span style='color: red'>Central Farnham, Thu 18th Dec</span>": central,
     }
 
     const layerControl = L.control.layers(baseMaps, overlays, {hideSingleBase: true, position: "bottomright"}).addTo(map);
