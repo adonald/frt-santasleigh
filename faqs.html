@@ -34,24 +34,14 @@
   
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item menu-item has-dropdown is-hoverable">
-          <div class="navbar-link">
-            <span class="icon-text">
-              <span class="icon">
-                <i class="fa-solid fa-route"></i>
-              </span>
-              <span>Routes</span>
+        <a class="navbar-item menu-item" href="index.html">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fa-solid fa-route"></i>
             </span>
-          </div>
-          <div class="navbar-dropdown is-right">
-            <a class="navbar-item" id="routeFollyHill">Folly Hill, Tue 9th Dec</a>
-            <a class="navbar-item" id="routeSouthFarnham">South Farnham, Wed 10th Dec</a>
-            <a class="navbar-item" id="routeRowledge">Rowledge, Thu 11th Dec</a>
-            <a class="navbar-item" id="routeChantrys">Chantrys, Tue 16th Dec</a>
-            <a class="navbar-item" id="routeHeathEnd">Heath End, Wed 17th Dec</a>
-            <a class="navbar-item" id="routeCentralFarnham">Central Farnham, Thu 18th Dec</a>
-          </div>
-        </div>
+            <span>Routes</span>
+          </span>
+        </a>
         <a class="navbar-item menu-item" href="faqs.html">
           <span class="icon-text">
             <span class="icon">
@@ -67,13 +57,26 @@
   <section class="hero is-small is-black">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="subtitle" id="status-box">Frequently Asked Questions</p>
+        <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</p>
       </div>
     </div>
   </section>
   
   <section class="section">
-    <p>more to follow</p>
+    <div class="container">
+      <h1 class="title">
+        <span class="icon-text">
+          <span class="icon">
+            <i class="fa-solid fa-circle-question"></i>
+          </span>
+          <span>Frequently Asked Questions</span>
+        </span>
+      </h1>
+      <details Name="faq" class="box">
+        <summary class="title is-5">What time do the routes start?</summary>
+        <p>Routes start at 6pm each night, and we aim to finish by 8pm. Check out where Santa is on our tracker page!</p>
+      </details>
+    </div>
   </section>
   
   <nav class="navbar is-fixed-bottom is-black" role="navigation" aria-label="main navigation">
@@ -88,7 +91,10 @@
     </div>
   </nav>
 
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/map.js"></script>
   <script src="js/mobile-menu.js"></script>
-  
+
 </body>
 </html>
