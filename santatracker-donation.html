@@ -165,7 +165,7 @@
       "<span style='color: deeppink'>South Farnham, Wed 10th Dec</span>": south_farnham
     }
 
-    const layerControl = L.control.layers(baseMaps, overlays, {collapsed: false, hideSingleBase: true, position: "bottomright"}).addTo(map);
+    const layerControl = L.control.layers(baseMaps, overlays, {hideSingleBase: true, position: "bottomright"}).addTo(map);
 
     const zoom_control = L.control.zoom({position: "bottomleft"}).addTo(map);
 
