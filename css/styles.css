@@ -29,7 +29,7 @@
     }
     @media (max-width: 600px) and (orientation: portrait) {
         #map {
-            height: 100vh - 56px - 98px - 56px;
+            height: calc(100vh - 56px - 98px - 56px);
             /* entire height minus top navbar minus two-line hero minus bottom navbar */
         }
     }
