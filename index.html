@@ -119,17 +119,17 @@
           attribution: '&copy; OpenStreetMap contributors'
         });
     
-    const central = L.polyline(central_latlngs, {color: 'red',weight: 3,opacity: 0.9})
+    const central = L.polyline(central_latlngs, {color: 'red',weight: 5,opacity: 0.75})
                             .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", date_options));
-    const chantrys = L.polyline(chantrys_latlngs, {color: 'blue',weight: 3,opacity: 0.9})
+    const chantrys = L.polyline(chantrys_latlngs, {color: 'blue',weight: 5,opacity: 0.75})
                             .bindPopup("Chantrys: " + chantrys_date.toLocaleDateString("en-GB", date_options));
-    const folly_hill = L.polyline(folly_hill_latlngs, {color: 'green',weight: 3,opacity: 0.9})
+    const folly_hill = L.polyline(folly_hill_latlngs, {color: 'green',weight: 5,opacity: 0.75})
                             .bindPopup("Folly Hill: " + folly_hill_date.toLocaleDateString("en-GB", date_options));
-    const heath_end = L.polyline(heath_end_latlngs, {color: 'black',weight: 3,opacity: 0.9})
+    const heath_end = L.polyline(heath_end_latlngs, {color: 'black',weight: 5,opacity: 0.75})
                             .bindPopup("Heath End: " + heath_end_date.toLocaleDateString("en-GB", date_options));
-    const rowledge = L.polyline(rowledge_latlngs, {color: 'darkorchid',weight: 3,opacity: 0.9})
+    const rowledge = L.polyline(rowledge_latlngs, {color: 'darkorchid',weight: 5,opacity: 0.75})
                             .bindPopup("Rowledge: " + rowledge_date.toLocaleDateString("en-GB", date_options));
-    const south_farnham = L.polyline(south_farnham_latlngs, {color: 'deeppink',weight: 3,opacity: 0.9})
+    const south_farnham = L.polyline(south_farnham_latlngs, {color: 'deeppink',weight: 5,opacity: 0.75})
                             .bindPopup("South Farnham: " + south_farnham_date.toLocaleDateString("en-GB", date_options));
     
     const routes = L.layerGroup()
