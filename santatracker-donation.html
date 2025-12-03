@@ -64,16 +64,6 @@
           </span>
         </a>
       </div>
-  
-      <!-- <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-black" href="https://www.paypal.com/donate/?hosted_button_id=3Q68MXSF6R8E6" target="_blank">
-              <strong>🎁 Donate!</strong>
-            </a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </nav>
 
@@ -99,7 +89,6 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <button class="button is-success" id="followBtn" title="Keep the map centred on Santa">Follow Santa: ON</button>
-        <!-- <button class="button" id="recenterBtn" title="Re-centre on Santa">Re-centre</button> -->
       </div>
     </div>
   </nav>
@@ -202,7 +191,6 @@
 
     const statusBox = document.getElementById("status-box");
     const followBtn = document.getElementById('followBtn');
-    // const recenterBtn = document.getElementById('recenterBtn');
     
     function setLive(lus) {
       marker.getPopup().setContent("🎁 Santa's Current Location" + lus);
@@ -234,13 +222,6 @@
         followBtn.classList.replace("is-success", "is-danger");
       }
     });
-
-    // recenterBtn.addEventListener('click', () => {
-    //   map.panTo(marker.getLatLng());
-    //   followSanta = true;
-    //   followBtn.textContent = 'Follow Santa: ON';
-    //   followBtn.classList.replace("is-danger", "is-success");
-    // });
 
     function animateMarker(from, to, duration = 1000) {
       const start = performance.now();
