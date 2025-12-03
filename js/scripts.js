@@ -1,4 +1,8 @@
 
+// --------------------------------------------------------
+// Show/hide navbar menu on mobile devices when clicking on
+// the hamburger menu icon
+// --------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
 
   const burger = document.getElementById('navbar-burger');
@@ -21,3 +25,259 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// --------------------------------------------------------
+// Javascript for Santa Tracker map
+// --------------------------------------------------------
+    const central_date = new Date(2025, 12, 18);
+    const chantrys_date = new Date(2025, 12, 16);
+    const folly_hill_date = new Date(2025, 12, 9);
+    const heath_end_date = new Date(2025, 12, 17);
+    const rowledge_date = new Date(2025, 12, 11);
+    const south_farnham_date = new Date(2025, 12, 10);
+    const date_options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    const firebaseURL = "https://frt-santas-sleigh-default-rtdb.europe-west1.firebasedatabase.app/location/current.json";
+
+    const REFRESH_MS = 10000;
+    const STALE_MS = 5 * 60000;
+    const FETCH_TIMEOUT_MS = 7000;
+
+    //const fallbackCoords = { lat: 66.5436, lng: 25.8473 }; //Lapland
+    const fallbackCoords = { lat: 51.2149, lng: -0.7989 }; //Farnham
+    
+    const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; OpenStreetMap contributors'
+        });
+    
+    const central = L.polyline(central_latlngs, {color: 'red',weight: 5,opacity: 0.75})
+                            .bindPopup("Central Farnham: " + central_date.toLocaleDateString("en-GB", date_options));
+    const chantrys = L.polyline(chantrys_latlngs, {color: 'blue',weight: 5,opacity: 0.75})
+                            .bindPopup("Chantrys: " + chantrys_date.toLocaleDateString("en-GB", date_options));
+    const folly_hill = L.polyline(folly_hill_latlngs, {color: 'green',weight: 5,opacity: 0.75})
+                            .bindPopup("Folly Hill: " + folly_hill_date.toLocaleDateString("en-GB", date_options));
+    const heath_end = L.polyline(heath_end_latlngs, {color: 'black',weight: 5,opacity: 0.75})
+                            .bindPopup("Heath End: " + heath_end_date.toLocaleDateString("en-GB", date_options));
+    const rowledge = L.polyline(rowledge_latlngs, {color: 'darkorchid',weight: 5,opacity: 0.75})
+                            .bindPopup("Rowledge: " + rowledge_date.toLocaleDateString("en-GB", date_options));
+    const south_farnham = L.polyline(south_farnham_latlngs, {color: 'deeppink',weight: 5,opacity: 0.75})
+                            .bindPopup("South Farnham: " + south_farnham_date.toLocaleDateString("en-GB", date_options));
+    
+    const routes = L.layerGroup()
+                      .addLayer(central)
+                      .addLayer(chantrys)
+                      .addLayer(folly_hill)
+                      .addLayer(heath_end)
+                      .addLayer(rowledge)
+                      .addLayer(south_farnham);
+
+    const map = L.map("map", {
+      center: [fallbackCoords.lat, fallbackCoords.lng],
+      zoom: 13,
+      zoomControl: false,
+      layers: [osm, routes]
+    });
+
+    const baseMaps = {
+      "OpenStreetMap": osm
+    };
+
+    const overlays = {
+      "<span style='color: green'>Folly Hill, Tue 9th Dec</span>": folly_hill,
+      "<span style='color: deeppink'>South Farnham, Wed 10th Dec</span>": south_farnham,
+      "<span style='color: darkorchid'>Rowledge, Thu 11th Dec</span>": rowledge,
+      "<span style='color: blue'>Chantrys, Tue 16th Dec</span>": chantrys,
+      "<span style='color: black'>Heath End, Wed 17th Dec</span>": heath_end,
+      "<span style='color: red'>Central Farnham, Thu 18th Dec</span>": central,
+    }
+
+    const layerControl = L.control.layers(baseMaps, overlays, {hideSingleBase: true, position: "bottomright"}).addTo(map);
+
+    const zoom_control = L.control.zoom({position: "bottomleft"}).addTo(map);
+
+    const sleighIcon = L.icon({
+      iconUrl: "https://i.ibb.co/pvjck0Vg/santa-icon.png",
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    const marker = L.marker([fallbackCoords.lat, fallbackCoords.lng], { icon: sleighIcon })
+      .addTo(map)
+      .bindPopup("Santa is here!");
+
+    const trail = L.polyline([], { weight: 2, opacity: 0.9 }).addTo(map);
+
+    const routeCentralFarnhamBtn = document.getElementById("routeCentralFarnham");
+    const routeChantrysBtn = document.getElementById("routeChantrys");
+    const routeFollyHillBtn = document.getElementById("routeFollyHill");
+    const routeHeathEndBtn = document.getElementById("routeHeathEnd");
+    const routeRowledgeBtn = document.getElementById("routeRowledge");
+    const routeSouthFarnhamBtn = document.getElementById("routeSouthFarnham");
+
+    routeCentralFarnhamBtn.addEventListener('click', () => { map.fitBounds(central.getBounds()); })
+    routeChantrysBtn.addEventListener('click', () => { map.fitBounds(chantrys.getBounds()); })
+    routeFollyHillBtn.addEventListener('click', () => { map.fitBounds(folly_hill.getBounds()); })
+    routeHeathEndBtn.addEventListener('click', () => { map.fitBounds(heath_end.getBounds()); })
+    routeRowledgeBtn.addEventListener('click', () => { map.fitBounds(rowledge.getBounds()); })
+    routeSouthFarnhamBtn.addEventListener('click', () => { map.fitBounds(south_farnham.getBounds()); })
+
+    const statusBox = document.getElementById("status-box");
+    const followBtn = document.getElementById('followBtn');
+    
+    function setLive(lus) {
+      marker.getPopup().setContent("🎁 Santa's Current Location" + lus);
+      statusBox.textContent = '🎅 Santa is out on his sleigh delivering joy!';
+    }
+
+    function setLapland(message) {
+      marker.getPopup().setContent(message || "🎄 GPS inactive – fallback to Lapland");
+      statusBox.textContent = '🎄 Santa is currently in Lapland preparing for Christmas!';
+    }
+
+    let followSanta = true;
+
+    followBtn.addEventListener('click', () => {
+      followSanta = !followSanta;
+      followBtn.textContent = `Follow Santa: ${followSanta ? 'ON' : 'OFF'}`;
+      if (followSanta) {
+        followBtn.classList.replace("is-warning", "is-success")
+      } else {
+        followBtn.classList.replace("is-success", "is-warning")
+       };
+      if (followSanta) map.panTo(marker.getLatLng());
+    });
+
+    map.on('dragstart zoomstart', () => {
+      if (followSanta) {
+        followSanta = false;
+        followBtn.textContent = 'Follow Santa: OFF';
+        followBtn.classList.replace("is-success", "is-warning");
+      }
+    });
+
+    function animateMarker(from, to, duration = 1000) {
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const lat = from.lat + (to.lat - from.lat) * t;
+        const lng = from.lng + (to.lng - from.lng) * t;
+
+        marker.setLatLng([lat, lng]);
+        if (followSanta) map.panTo([lat, lng], { animate: false });
+
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    let lastPoint = L.latLng(fallbackCoords.lat, fallbackCoords.lng);
+    let backoff = REFRESH_MS;
+
+    async function updateLocation() {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+      try {
+        const response = await fetch(firebaseURL, { cache: 'no-store', signal: controller.signal });
+        clearTimeout(timeout);
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const raw = await response.json();
+
+        const secretKey = Object.keys(raw)[0];
+        const data = raw[secretKey];
+
+        const valid =
+          data && typeof data.lat === 'number' &&
+          typeof data.lng === 'number' &&
+          typeof data.ts === 'string';
+
+        if (!valid) throw new Error('Bad payload');
+
+        const gpsTime = new Date(data.ts).getTime();
+        const ageMs = Date.now() - gpsTime;
+        var lastUpdatedString = `<br />Last updated: ${Math.floor(ageMs / 1000)}s ago`;
+
+        if (ageMs < STALE_MS) {
+          const newLatLng = L.latLng(data.lat, data.lng);
+          trail.addLatLng(newLatLng);
+
+          animateMarker(lastPoint, newLatLng);
+          lastPoint = newLatLng;
+
+          setLive(lastUpdatedString);
+          backoff = REFRESH_MS;
+          return;
+        }
+
+        goFallback('🎄 GPS inactive – fallback to Lapland');
+
+      } catch (e) {
+        clearTimeout(timeout);
+        console.error("Error:", e);
+
+        goFallback('🎄 GPS fetch failed – fallback to Lapland');
+        backoff = Math.min(backoff * 1.5, 60000);
+
+      } finally {
+        scheduleNext();
+      }
+    }
+
+    function goFallback(msg) {
+      const next = L.latLng(fallbackCoords.lat, fallbackCoords.lng);
+      animateMarker(marker.getLatLng(), next, 600);
+
+      setLapland(msg);
+    }
+
+    let timer;
+    function scheduleNext() {
+      clearTimeout(timer);
+      timer = setTimeout(updateLocation, backoff);
+    }
+
+    setLapland();
+    updateLocation();
+
+    const snow = document.getElementById('snow');
+    const ctx = snow.getContext('2d');
+
+    function resize() {
+      snow.width = window.innerWidth;
+      snow.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    let flakes = Array.from({ length: 120 }, () => ({
+      x: Math.random()*snow.width,
+      y: Math.random()*snow.height,
+      r: Math.random()*2 + 0.8,
+      s: Math.random()*0.6 + 0.3,
+      a: Math.random()*Math.PI*2
+    }));
+
+    (function drawSnow() {
+      ctx.clearRect(0,0,snow.width,snow.height);
+
+      for(const f of flakes) {
+        f.y += f.s;
+        f.x += Math.sin(f.a+=0.01)*0.3;
+
+        if(f.y > snow.height) {
+          f.y = -5;
+          f.x = Math.random()*snow.width;
+        }
+
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(drawSnow);
+    })();
