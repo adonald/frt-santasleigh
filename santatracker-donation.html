@@ -182,6 +182,15 @@
 
     const trail = L.polyline([], { weight: 2, opacity: 0.9 }).addTo(map);
 
+    const routeCentralFarnhamBtn = document.getElementById("routeCentralFarnham");
+    const routeChantrysBtn = document.getElementById("routeChantrys");
+    const routeFollyHillBtn = document.getElementById("routeFollyHill");
+    const routeHeathEndBtn = document.getElementById("routeHeathEnd");
+    const routeRowledgeBtn = document.getElementById("routeRowledge");
+    const routeSouthFarnhamBtn = document.getElementById("routeSouthFarnham");
+
+    routeCentralFarnhamBtn.addEventListener('click', () => { map.fitBounds(central.getBounds()); })
+
     const statusBox = document.getElementById("status-box");
     const followBtn = document.getElementById('followBtn');
     const recenterBtn = document.getElementById('recenterBtn');
