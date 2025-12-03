@@ -208,9 +208,9 @@
       followSanta = !followSanta;
       followBtn.textContent = `Follow Santa: ${followSanta ? 'ON' : 'OFF'}`;
       if (followSanta) {
-        followBtn.classList.replace("is-danger", "is-success")
+        followBtn.classList.replace("is-warning", "is-success")
       } else {
-        followBtn.classList.replace("is-success", "is-danger")
+        followBtn.classList.replace("is-success", "is-warning")
        };
       if (followSanta) map.panTo(marker.getLatLng());
     });
@@ -219,7 +219,7 @@
       if (followSanta) {
         followSanta = false;
         followBtn.textContent = 'Follow Santa: OFF';
-        followBtn.classList.replace("is-success", "is-danger");
+        followBtn.classList.replace("is-success", "is-warning");
       }
     });
 
