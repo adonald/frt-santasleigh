@@ -36,7 +36,7 @@
     </div>
   
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+      <div class="navbar-end">
         <div class="navbar-item menu-item has-dropdown is-hoverable">
           <div class="navbar-link">
             <span class="icon-text">
@@ -65,7 +65,7 @@
         </a>
       </div>
   
-      <div class="navbar-end">
+      <!-- <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <a class="button is-black" href="https://www.paypal.com/donate/?hosted_button_id=3Q68MXSF6R8E6" target="_blank">
@@ -73,7 +73,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </nav>
 
@@ -81,7 +81,6 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <p class="subtitle" id="status-box">🎄 Santa is currently in Lapland preparing for Christmas!</p>
-        <!--<span class="muted" id="lastUpdated">Last updated: —</span>-->
       </div>
     </div>
   </section>
@@ -92,10 +91,15 @@
   <nav class="navbar is-fixed-bottom is-black" role="navigation" aria-label="main navigation">
     <div class="navbar-start">
       <div class="navbar-item">
-        <div class="buttons">
-          <button class="button is-success" id="followBtn" title="Keep the map centred on Santa">Follow Santa: ON</button>
-          <button class="button" id="recenterBtn" title="Re-centre on Santa">Re-centre</button>
-        </div>
+        <button class="button is-success" id="followBtn" title="Keep the map centred on Santa">Follow Santa: ON</button>
+        <!-- <button class="button" id="recenterBtn" title="Re-centre on Santa">Re-centre</button> -->
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <a class="button is-danger" href="https://www.paypal.com/donate/?hosted_button_id=3Q68MXSF6R8E6" target="_blank">
+          <strong>🎁 Donate!</strong>
+        </a>
       </div>
     </div>
   </nav>
@@ -198,7 +202,7 @@
 
     const statusBox = document.getElementById("status-box");
     const followBtn = document.getElementById('followBtn');
-    const recenterBtn = document.getElementById('recenterBtn');
+    // const recenterBtn = document.getElementById('recenterBtn');
     
     function setLive(lus) {
       marker.getPopup().setContent("🎁 Santa's Current Location" + lus);
@@ -231,12 +235,12 @@
       }
     });
 
-    recenterBtn.addEventListener('click', () => {
-      map.panTo(marker.getLatLng());
-      followSanta = true;
-      followBtn.textContent = 'Follow Santa: ON';
-      followBtn.classList.replace("is-danger", "is-success");
-    });
+    // recenterBtn.addEventListener('click', () => {
+    //   map.panTo(marker.getLatLng());
+    //   followSanta = true;
+    //   followBtn.textContent = 'Follow Santa: ON';
+    //   followBtn.classList.replace("is-danger", "is-success");
+    // });
 
     function animateMarker(from, to, duration = 1000) {
       const start = performance.now();
