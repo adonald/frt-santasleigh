@@ -16,7 +16,7 @@
         color: white;
     }
 
-    body {
+    body.has-map {
         height: 100vh;
         overflow: hidden;
     }
